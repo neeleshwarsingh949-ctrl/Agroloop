@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Recycle, Globe, Leaf, LogOut } from "lucide-react";
+import { Recycle, Globe, Leaf, LogOut, Download } from "lucide-react";
 import { speakText } from "../utils/speech";
 import { UserSession } from "./AuthScreen";
 
@@ -52,6 +52,15 @@ export const Header: React.FC<HeaderProps> = ({ isVoiceEnabled, user, onOpenAuth
 
         {/* User Session Info & Controls */}
         <div className="flex items-center gap-4">
+          <a
+            href="https://github.com/neeleshwarsingh949-ctrl/Agroloop/raw/main/AgroLoop.apk"
+            download="AgroLoop.apk"
+            title="Download AgroLoop Android app"
+            className="inline-flex items-center gap-2 rounded-lg border border-emerald-600 bg-emerald-800/70 px-3 py-2 text-xs font-bold text-emerald-100 transition hover:bg-emerald-700"
+          >
+            <Download className="w-4 h-4" />
+            <span className="hidden sm:inline">Download App</span>
+          </a>
           <div className="flex items-center gap-3 bg-emerald-900/60 px-3 py-1.5 rounded-xl border border-emerald-700">
             {user ? (
               <>

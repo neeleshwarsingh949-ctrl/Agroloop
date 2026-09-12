@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { UserCheck, Truck, Factory, Recycle, Leaf, Globe, ArrowRight } from "lucide-react";
+import { UserCheck, Truck, Factory, Recycle, Leaf, Globe, ArrowRight, Download } from "lucide-react";
 import { speakText } from "../utils/speech";
 import { auth } from "../firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber, ConfirmationResult } from "firebase/auth";
@@ -108,19 +108,30 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onLoginSuccess, isVoiceE
         </div>
 
         {/* Language Picker */}
-        <div className="flex items-center gap-2 bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-700">
-          <Globe className="w-4 h-4 text-emerald-400" />
-          <select
-            value={i18n.language}
-            onChange={handleLanguageChange}
-            className="bg-transparent text-white text-xs focus:outline-none cursor-pointer font-medium"
+        <div className="flex items-center gap-2">
+          <a
+            href="https://github.com/neeleshwarsingh949-ctrl/Agroloop/raw/main/AgroLoop.apk"
+            download="AgroLoop.apk"
+            title="Download AgroLoop Android app"
+            className="inline-flex items-center gap-2 rounded-lg border border-emerald-700 bg-emerald-900 px-3 py-1.5 text-xs font-bold text-emerald-200 transition hover:bg-emerald-800"
           >
-            <option value="hi" className="bg-slate-900 text-white">हिंदी (Hindi)</option>
-            <option value="en" className="bg-slate-900 text-white">English</option>
-            <option value="ta" className="bg-slate-900 text-white">தமிழ் (Tamil)</option>
-            <option value="bho" className="bg-slate-900 text-white">भोजपुरी (Bhojpuri)</option>
-            <option value="bn" className="bg-slate-900 text-white">বাংলা (Bengali)</option>
-          </select>
+            <Download className="w-4 h-4" />
+            <span className="hidden sm:inline">Download App</span>
+          </a>
+          <div className="flex items-center gap-2 bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-700">
+            <Globe className="w-4 h-4 text-emerald-400" />
+            <select
+              value={i18n.language}
+              onChange={handleLanguageChange}
+              className="bg-transparent text-white text-xs focus:outline-none cursor-pointer font-medium"
+            >
+              <option value="hi" className="bg-slate-900 text-white">हिंदी (Hindi)</option>
+              <option value="en" className="bg-slate-900 text-white">English</option>
+              <option value="ta" className="bg-slate-900 text-white">தமிழ் (Tamil)</option>
+              <option value="bho" className="bg-slate-900 text-white">भोजपुरी (Bhojpuri)</option>
+              <option value="bn" className="bg-slate-900 text-white">বাংলা (Bengali)</option>
+            </select>
+          </div>
         </div>
       </div>
 
