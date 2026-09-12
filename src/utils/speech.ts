@@ -2,7 +2,8 @@ const languageCodes: Record<string, string> = {
   en: 'en-US',
   hi: 'hi-IN',
   ta: 'ta-IN',
-  bho: 'hi-IN'
+  bho: 'hi-IN',
+  bn: 'bn-IN'
 };
 
 declare global {

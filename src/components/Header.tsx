@@ -21,7 +21,8 @@ export const Header: React.FC<HeaderProps> = ({ isVoiceEnabled, user, onOpenAuth
       hi: "हिंदी भाषा चुनी गई",
       en: "English language selected",
       ta: "தமிழ் மொழி தேர்ந்தெடுக்கப்பட்டது",
-      bho: "भोजपुरी भाषा चुनल गइल"
+      bho: "भोजपुरी भाषा चुनल गइल",
+      bn: "বাংলা ভাষা নির্বাচিত হয়েছে"
     };
     speakText(langNames[newLang] || "", newLang, isVoiceEnabled);
   };
@@ -87,6 +88,7 @@ export const Header: React.FC<HeaderProps> = ({ isVoiceEnabled, user, onOpenAuth
               <option value="en" className="bg-emerald-900 text-white">English</option>
               <option value="ta" className="bg-emerald-900 text-white">தமிழ் (Tamil)</option>
               <option value="bho" className="bg-emerald-900 text-white">भोजपुरी (Bhojpuri)</option>
+              <option value="bn" className="bg-emerald-900 text-white">বাংলা (Bengali)</option>
             </select>
           </div>
         </div>
