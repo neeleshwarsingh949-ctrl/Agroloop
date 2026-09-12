@@ -4,7 +4,7 @@ android {
     namespace "com.agroloop.app"
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.agroloop.app"
+        applicationId "com.techyy_neeleshwar.agroloop"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
