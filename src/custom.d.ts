@@ -1,0 +1,8 @@
+declare module '*.css';
+declare module '*.scss';
+declare module '*.svg';
+declare module '*.png';
+
+export {};
+
+declare module './index.css';

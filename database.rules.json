@@ -1,0 +1,13 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": false,
+    "listings": {
+      "$listingId": {
+        ".read": "auth != null",
+        ".write": "auth != null && ((newData.exists() && !data.exists() && newData.child('ownerUid').val() == auth.uid && newData.child('status').val() == 'AVAILABLE') || (data.exists() && newData.exists() && data.child('ownerUid').val() == auth.uid && newData.child('ownerUid').val() == data.child('ownerUid').val() && newData.child('status').val() == data.child('status').val()) || (data.exists() && newData.exists() && data.child('status').val() == 'AVAILABLE' && newData.child('status').val() == 'CLAIMED' && newData.child('claimedByUid').val() == auth.uid) || (data.exists() && newData.exists() && data.child('status').val() == 'AVAILABLE' && newData.child('status').val() == 'CONFIRMED' && newData.child('bookedByUid').val() == auth.uid && newData.child('utrNumber').isString() && newData.child('utrNumber').val().matches(/^[0-9]{12}$/)) || (data.exists() && newData.exists() && data.child('status').val() == 'CLAIMED' && newData.child('status').val() == 'CONFIRMED' && newData.child('bookedByUid').val() == auth.uid && newData.child('utrNumber').isString() && newData.child('utrNumber').val().matches(/^[0-9]{12}$/)))",
+        ".validate": "newData.hasChildren(['farmerName', 'phoneNormalized', 'location', 'cropType', 'wasteKg', 'pricePerKg', 'status', 'createdAt', 'ownerUid']) && newData.child('farmerName').isString() && newData.child('farmerName').val().length <= 120 && newData.child('phoneNormalized').isString() && newData.child('phoneNormalized').val().matches(/^\\+[1-9][0-9]{7,14}$/) && newData.child('location').isString() && newData.child('location').val().length <= 200 && newData.child('cropType').val().matches(/^(mustard|paddy|wheat)$/) && newData.child('wasteKg').isNumber() && newData.child('wasteKg').val() > 0 && newData.child('wasteKg').val() <= 10000000 && newData.child('pricePerKg').isNumber() && newData.child('pricePerKg').val() > 0 && newData.child('pricePerKg').val() <= 100000 && ((data.exists() && newData.child('ownerUid').val() == data.child('ownerUid').val()) || (!data.exists() && newData.child('ownerUid').val() == auth.uid))"
+      }
+    }
+  }
+}
